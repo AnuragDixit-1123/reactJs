@@ -1,17 +1,57 @@
 
-import React from 'react';
+import React, {Component} from 'react';
 import Aux from '../../hoc/Auxillary';
 import './Layout.css';
+import Toolbar from '../navigation/toolbar/Toolbar';
+import SideDrawer from '../navigation/sideDrawer/SideDrawer';
+/**
+ * @description
+ * Toolbar called here because we want to see it all the time.
+ * 
+ */
+class Layout extends Component {
 
-const layout =  (props) => (
-  <Aux>
-     <div> Toolbar, Sidedrawer, Backdrop
-     </div>
-     <main className= 'Content'>
-       {props.children}
-     </main>
-  </Aux>
+  state = {
+    showSideDrawer: true
+  }
+  /**
+   * @description
+   */
+  sideDrawerClosedHandler = () => {
 
-);
+    this.setState({ showSideDrawer: false})
+  }
 
-export default layout;
+   /**
+   * @description
+   */
+  sideDrawerToggleHandler = () => {
+
+    this.setState( (prevState) => { 
+     return { 
+        showSideDrawer: !prevState.showSideDrawer
+      }
+    })
+  }
+
+  render() {
+
+    return (
+      <Aux>
+         <Toolbar 
+           drawerToggleClicked={this.sideDrawerToggleHandler}
+         />
+           <SideDrawer 
+             open={this.state.showSideDrawer}
+             closed={this.sideDrawerClosedHandler}
+           />
+         <main className= 'Content'>
+           {this.props.children}
+         </main>
+      </Aux>
+    
+    )
+  } 
+}
+
+export default Layout;

@@ -1,0 +1,43 @@
+
+
+.SideDrawer {
+    position: fixed;
+    width: 200px;
+    max-width: 70%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    background-color: white;
+    padding : 32px 16px;
+    box-sizing: border-box;
+    /* FOr the animation*/
+    transition: transform 0.3s ease-out;
+}
+
+/* For bigger devices we use the media query*/
+@media (min-width: 500px) {
+
+    /* Makes disable false in the bigger devices*/
+    .SideDrawer {
+        display: none;
+    }
+}
+
+/* Open and close are responsible for the animation of the drawer*/
+.Open {
+ transform: translateX(0)
+
+}
+
+.Close {
+    transform: translateX(-100%);
+
+
+
+}
+
+.Logo2 {
+    height: 11%;
+    margin-bottom: 32px
+}
