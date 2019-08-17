@@ -2,8 +2,8 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/Auxillary';
 import './Layout.css';
-import Toolbar from '../navigation/toolbar/Toolbar';
-import SideDrawer from '../navigation/sideDrawer/SideDrawer';
+import Toolbar from '../../components/navigation/toolbar/Toolbar';
+import SideDrawer from '../../components/navigation/sideDrawer/SideDrawer';
 /**
  * @description
  * Toolbar called here because we want to see it all the time.
