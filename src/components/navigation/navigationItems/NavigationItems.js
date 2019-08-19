@@ -8,15 +8,16 @@ const navigationItems = () => (
     <ul className='NavigationItems'>
         <NavigationItem 
         link='/'
-        active
+        exact
+     // no need   active
         >
             Burger Builder
         </NavigationItem>
         <NavigationItem 
-        link='/'
+        link='/orders'
         
         >
-            Checkout
+            Orders
         </NavigationItem>
     </ul>
 

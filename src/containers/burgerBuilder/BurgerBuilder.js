@@ -121,6 +121,7 @@ class BurgerBuilder extends Component {
      /**
      * @description
      * This is to press the continue button
+     *  commneting the whole code because we are shifting it with the use of routing
      * 
      */
     purchaseContinueHandler = () => {
@@ -129,7 +130,7 @@ class BurgerBuilder extends Component {
 
         // Order data for the api call
 
-         this.setState({loading: true})
+        {/* this.setState({loading: true})
 
         const order = {
             ingredients: this.state.ingredients,
@@ -158,6 +159,25 @@ class BurgerBuilder extends Component {
             this.setState({loading: false, purchasing: false})
 
         })
+    */}
+
+    // FOR NORMAL ROUTING
+      // this.props.history.push('/checkout')
+
+    // FOR PASSING QUERY PARAMATERS
+
+    const queryParams = [];
+    for (let i in this.state.ingredients) {
+        queryParams.push(encodeURIComponent(i) + '='+ encodeURIComponent(this.state.ingredients[i]))
+    }
+    queryParams.push(`price=${this.state.totalPrice}`)
+    const queryString = queryParams.join('&');
+
+    this.props.history.push({
+          pathname: '/checkout',
+          search:'?'+ queryString
+    });
+       
     }
 
     orderSummary = () => {
